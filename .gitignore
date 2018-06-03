@@ -1,0 +1,25 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+/.idea/
+jd-common/target/
+jd-dao/target/
+jd-interface/target/
+jd-pojo/target/
+jd-service-seller/target/
+jd-service-sellergoods/src/main/resources/
+jd-service-sellergoods/src/test/
+jd-service-sellergoods/target/
+jd-web-manager/target/
+/jd-web-manager/src/main/webapp/admin/
+/jd-web-manager/src/main/webapp/css/
+/jd-web-manager/src/main/webapp/img/
+/jd-web-manager/src/main/webapp/js/
+/jd-web-manager/src/main/webapp/plugins/
+/jd-web-manager/src/main/webapp/login.html
