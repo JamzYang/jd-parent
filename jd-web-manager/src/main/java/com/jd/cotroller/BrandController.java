@@ -17,7 +17,7 @@ public class BrandController {
     private BrandService brandService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public String add(Brand brand){
+   public String add(@RequestBody Brand brand){
         try {
             brandService.insert(brand);
             return INSERT_SUCCESS;
@@ -25,8 +25,10 @@ public class BrandController {
             return INSERT_FALSE;
         }
     }
+
+
     @RequestMapping(method = RequestMethod.PUT)
-    public String update(Brand brand){
+    public String update(@RequestBody Brand brand){
         try {
             brandService.update(brand);
             return UPDATE_SUCCESS;

@@ -1,6 +1,7 @@
 package com.jd.pojo.specification;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Specification implements Serializable {
     /**
@@ -12,6 +13,7 @@ public class Specification implements Serializable {
      * 名称
      */
     private String specName;
+    private List<SpecificationOption> specificationOptionList;
 
     private static final long serialVersionUID = 1L;
 
@@ -29,6 +31,14 @@ public class Specification implements Serializable {
 
     public void setSpecName(String specName) {
         this.specName = specName == null ? null : specName.trim();
+    }
+
+    public List<SpecificationOption> getSpecificationOptionList() {
+        return specificationOptionList;
+    }
+
+    public void setSpecificationOptionList(List<SpecificationOption> specificationOptionList) {
+        this.specificationOptionList = specificationOptionList;
     }
 
     @Override
