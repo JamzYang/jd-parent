@@ -1,6 +1,7 @@
 package com.jd.cotroller;
 
 import com.github.pagehelper.PageInfo;
+import com.jd.pojo.entity.Result;
 import com.jd.pojo.good.Brand;
 import com.jd.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -33,4 +33,19 @@ public class SpecificationController {
        }
     }
 
+    @RequestMapping(method = RequestMethod.PUT)
+    public String update(@RequestBody Specification spec){
+        try {
+            if(!StringUtils.isEmpty(spec.getSpecName()))
+                specificationSerivce.update(spec);
+            return UPDATE_SUCCESS;
+        } catch (Exception e) {
+            return UPDATE_FALSE;
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public Specification findByKey(Long id ){
+        return specificationSerivce.findByKey(id);
+    }
 }

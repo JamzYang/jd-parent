@@ -6,6 +6,7 @@ import com.jd.dao.specification.SpecificationDao;
 import com.jd.dao.specification.SpecificationOptionDao;
 import com.jd.pojo.specification.Specification;
 import com.jd.pojo.specification.SpecificationOption;
+import com.jd.pojo.specification.SpecificationOptionQuery;
 import com.jd.pojo.specification.SpecificationQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,39 @@ public class SpecificationSerivceImpl implements SpecificationSerivce {
             specificationOption.setSpecId(record.getId());
             specificationOptionDao.insertSelective(specificationOption);
         }
+    }
+
+    @Override
+    public void update(Specification record) {
+        List<SpecificationOption> optionList = record.getSpecificationOptionList();
+        SpecificationOptionQuery optionQuery = new SpecificationOptionQuery();
+        optionQuery.createCriteria().andSpecIdEqualTo(record.getId());
+        specificationOptionDao.deleteByExample(optionQuery);
+        specificationDao.updateByPrimaryKey(record);
+        if(record.getSpecificationOptionList() != null)
+            for (SpecificationOption specificationOption : optionList) {
+                specificationOptionDao.insertSelective(specificationOption);
+            }
+    }
+
+    @Override
+    public void delete(Long id) {
+
+    }
+
+    @Override
+    public List<Specification> findAll() {
+        return null;
+    }
+
+    @Override
+    public Specification findByKey(Long id) {
+        Specification specification = specificationDao.selectByPrimaryKey(id);
+        SpecificationOptionQuery optionQuery = new SpecificationOptionQuery();
+        optionQuery.createCriteria().andSpecIdEqualTo(id);
+        List<SpecificationOption> optionList = specificationOptionDao.selectByExample(optionQuery);
+        specification.setSpecificationOptionList(optionList);
+        return specification;
     }
 
 }
