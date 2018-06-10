@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 import static com.jd.common.Constant.*;
 
@@ -66,6 +67,12 @@ public class BrandController {
     @RequestMapping(value = "/search", method= RequestMethod.POST)
     public PageInfo<Brand> findByWhere(@RequestBody Brand brand, Integer page, Integer rows){
         return brandService.findByWhere(brand,page,rows);
+    }
+
+    @RequestMapping(value = "/selectOptionList", method= RequestMethod.GET)
+    public List<Map> selectOptionList(){
+        List<Map> list = brandService.selectOptionList();
+        return list;
     }
 
 

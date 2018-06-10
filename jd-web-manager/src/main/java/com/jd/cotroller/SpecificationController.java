@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/specification")
 public class SpecificationController {
@@ -47,5 +50,10 @@ public class SpecificationController {
     @RequestMapping(method = RequestMethod.GET)
     public Specification findByKey(Long id ){
         return specificationSerivce.findByKey(id);
+    }
+
+    @RequestMapping(value = "/selectOptionList")
+    public List<Map> selectOptionList(Long id ){
+        return specificationSerivce.selectOptionList();
     }
 }

@@ -34,6 +34,21 @@ public class TypeTemplateController {
         }
     }
 
+  /*  @RequestMapping(method = RequestMethod.POST)
+//    public String add(@RequestBody TypeTemplate template){
+    public String add(String name, String brandIds, String specIds, String customAttributeItems){
+        try {
+            TypeTemplate template = new TypeTemplate();
+            template.setBrandIds(brandIds);
+            template.setName(name);
+            template.setSpecIds(specIds);
+            typeTemplateService.insert(template);
+            return INSERT_SUCCESS;
+        } catch (Exception e){
+            return INSERT_FALSE;
+        }
+    }*/
+
 
     @RequestMapping(method = RequestMethod.PUT)
     public String update(@RequestBody TypeTemplate template){

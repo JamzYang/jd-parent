@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.jd.pojo.specification.Specification;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SpecificationSerivce {
     Page<Specification> findByWhere(Specification spec, Integer pageNum, Integer pageSize);
@@ -12,4 +13,6 @@ public interface SpecificationSerivce {
     void delete(Long id);
     List<Specification> findAll();
     Specification findByKey(Long id);
+
+    List<Map> selectOptionList();
 }

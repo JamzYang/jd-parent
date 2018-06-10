@@ -18,7 +18,7 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
     TypeTemplateDao typeTemplateDao;
     @Override
     public void insert(TypeTemplate record) {
-
+        typeTemplateDao.insertSelective(record);
     }
 
     @Override

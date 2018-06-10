@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BrandServiceImpl implements BrandService {
@@ -61,5 +62,10 @@ public class BrandServiceImpl implements BrandService {
             query.createCriteria().andFirstCharEqualTo(brand.getFirstChar());
         Page<Brand> page =(Page<Brand>) brandDao.selectByExample(query);
         return page.toPageInfo();
+    }
+
+    @Override
+    public List<Map> selectOptionList() {
+        return brandDao.selectOptionList();
     }
 }
